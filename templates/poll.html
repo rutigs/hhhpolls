@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ poll.name }}{% endblock %}
+
+{% block body_block %}
+
+    <div class="row">
+
+        {% if poll.open == True %}
+            <h2>{{ poll.name }}</h2><br>
+            <h4>You only get one vote and you cannot change it!</h3><br>
+            <form action="" method="post">
+                {% csrf_token %}
+                {% load vid_ids %}
+                {% for choice in poll.choice_set.all %}
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 choices">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 radio-label">
+                                <label for="choice{{ forloop.counter }}">{{ choice.name }}</label>
+                                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.name }}" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="youtube-container">
+                                    <div class="youtube-player" data-id="{{ choice.url|video_id }}"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            <div class="container">
+                <input id="pollvote" type="submit" value="Vote" />
+            </div>
+            </form>
+
+        {% else %}
+            <h2>Voting is closed.<h2>
+            <h3><a href="results">See the current results here.</a></h3>
+        {% endif %}
+
+    </div>
+{% endblock %}

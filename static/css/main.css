@@ -1,0 +1,133 @@
+body {
+    color: black;
+    background: url(recordbg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+}
+#loginform {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+}
+nav {
+    color: white;
+}
+#redditauth {
+    background-color: transparent;
+    font-size: inherit;
+    border: 1px solid black;
+}
+.poll {
+    text-align: center;
+}
+.choices {
+    margin-bottom: 20px;
+}
+iframe, img {
+    display: block;
+}
+radio-label {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+iframe, img {
+    height: 240px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+h2, h3, h4 {
+    text-align: center;
+}
+.col-centered {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+nav {
+    background-color: black;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+
+@media (min-width: 480px) {
+    iframe, img {
+        display: block;
+        width: 90%;
+        height: 100%;
+    }
+}
+
+@media (min-width: 760px) {
+    iframe, img {
+        display: block;
+        width: 90%;
+        height: 50vh;
+    }
+}
+
+@media (min-width: 992px) {
+    iframe, img {
+        display: block;
+        width: 90%;
+        height: 50vh;
+    }
+}
+
+@media (min-width: 1200px) {
+    iframe, img {
+        display: block;
+        width: 90%;
+        height: 50vh;
+    }
+}
+
+#logo {
+    display: inline-block;
+    height: 50px;
+    width: inherit;
+    vertical-align: middle;
+}
+#logolink {
+    text-decoration: none;
+    color: white;
+}
+#logolink:hover {
+    text-decoration: none;
+    color: white;
+}
+button span {
+    background-color: white;
+}
+.poll-link {
+    color: black;
+}
+.poll-link:hover {
+    color: black;
+}
+a:hover {
+    color: black;
+}
+input {
+    background-color: black;
+    border: none;
+    font-size: 30px;
+}
+#pollvote {
+    text-align: center;
+    background-color: transparent;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid black;
+}
+#voted {
+    color: black;
+}

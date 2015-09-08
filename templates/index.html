@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+
+{% block title %}Home{% endblock %}
+
+{% block body_block %}
+
+<div class="row center-block">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <h3>Current Polls</h3>
+        {% if open_polls %}
+            <ul>
+                {% for Poll in open_polls %}
+                    <li><a class="poll-link" href="{{ Poll.slug }}">{{ Poll.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h3>No active polls at the moment.</h3>
+            <h3>Message
+                <a href="https://www.reddit.com/message/compose/?to=HipHopHeads_Polls"> /u/HipHopHeads_Polls </a> or <a href="https://www.reddit.com/message/compose?to=%2Fr%2Fhiphopheads&subject=&message="> the mods </a> to request one!
+            </h3>
+        {% endif %}
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <h3>Past Poll Results</h3>
+
+        {% if closed_polls %}
+            <ul>
+                {% for Poll in closed_polls %}
+                    <li><a class="poll-link" href="{{ Poll.slug }}/results">{{ Poll.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h4>There is no past polls yet.</h3>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

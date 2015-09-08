@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Reddit Login{% endblock %}
+
+{% block body_block %}
+
+    <div class="container-fluid login col-centered">
+        <form action="" id="loginform" method="post">
+            {% csrf_token %}
+            <label for="loginbutton">Authorize with Reddit</label>
+            <input id="redditauth" type="submit" id="loginbutton" value="Click Here!" />
+        </form>
+    </div>
+
+{% endblock %}
