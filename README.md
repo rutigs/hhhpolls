@@ -4,6 +4,7 @@
 HipHopHeads Polls is an application for the community over at <a href="https://www.reddit.com/r/HipHopHeads">/r/HipHopHeads</a> on Reddit.
 
 Besides being my 2nd time making a web application (first time alone) the following were my goals for the project:
+
 1. Provide a service where only the community (those who are subbed to the subreddit) can vote by using the Reddit API.
 2. Mobile-friendly and look good
 3. Learn Django/Python and other web development technologies
@@ -26,27 +27,29 @@ To achieve this I did several things.
 
 inside main.js
 <code>
-(function() {
-    var v = document.getElementsByClassName("youtube-player");
-    for (var n = 0; n < v.length; n++) {
-        var p = document.createElement("div");
-        p.innerHTML = ytThumb(v[n].dataset.id);
-        p.onclick = ytIframe;
-        v[n].appendChild(p);
+
+    (function() {
+        var v = document.getElementsByClassName("youtube-player");
+        for (var n = 0; n < v.length; n++) {
+            var p = document.createElement("div");
+            p.innerHTML = ytThumb(v[n].dataset.id);
+            p.onclick = ytIframe;
+            v[n].appendChild(p);
+        }
+    })();
+    
+    function ytThumb(id) {
+        return '\<img class="youtube-thumb" src="//i.ytimg.com/vi/' + id + '/hqdefault.jpg"><div class="play-button"></div>';
     }
-})();
+    
+    function ytIframe() {
+        var iframe = document.createElement("iframe");
+        iframe.setAttribute("src", "//www.youtube.com/embed/" + this.parentNode.dataset.id + "?autoplay=1");
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute("id", "youtube-iframe");
+        this.parentNode.replaceChild(iframe, this);
+    }
 
-function ytThumb(id) {
-    return '<img class="youtube-thumb" src="//i.ytimg.com/vi/' + id + '/hqdefault.jpg"><div class="play-button"></div>';
-}
-
-function ytIframe() {
-    var iframe = document.createElement("iframe");
-    iframe.setAttribute("src", "//www.youtube.com/embed/" + this.parentNode.dataset.id + "?autoplay=1");
-    iframe.setAttribute("frameborder", "0");
-    iframe.setAttribute("id", "youtube-iframe");
-    this.parentNode.replaceChild(iframe, this);
-}
 </code>
 
 Goal 3. Learn Django/Python/Web Development
