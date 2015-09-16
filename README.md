@@ -1,4 +1,4 @@
-<a href="https://hhhpolls.herokuapp.com">HipHopHeads Polls</a>
+<a href="http://www.hhhpolls.com">HipHopHeads Polls</a>
 ==========================================
 
 HipHopHeads Polls is an application for the community over at <a href="https://www.reddit.com/r/HipHopHeads">/r/HipHopHeads</a> on Reddit.
