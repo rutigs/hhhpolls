@@ -40,4 +40,4 @@ class Voter(models.Model):
     poll = models.ForeignKey(Poll)
 
     def __unicode__(self):
-        return self.user
+        return self.user.username
