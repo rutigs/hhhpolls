@@ -11,7 +11,7 @@ class ChoiceInline(admin.StackedInline):
 
 
 class PollAdmin(admin.ModelAdmin):
-    fields = ('name', 'open')
+    fields = ('name', 'open', 'embed_url')
     inlines = [ChoiceInline]
 
 

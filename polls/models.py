@@ -11,6 +11,7 @@ class Poll(models.Model):
     name = models.CharField(max_length=100)
     creation_date = models.DateTimeField(editable=False)
     slug = models.SlugField(unique=True)
+    embed_url = models.CharField(blank=True, max_length=500)
 
     class Meta:
         get_latest_by = 'creation_date'
@@ -28,7 +29,7 @@ class Choice(models.Model):
     poll = models.ForeignKey(Poll)
     name = models.CharField(max_length=100)
     votes = models.IntegerField(default=0)
-    url = models.CharField(max_length=500)
+    url = models.CharField(blank=True, max_length=500)
 
     def __unicode__(self):
         return self.name
