@@ -1,3 +1,4 @@
+// stack overflow homies - question ?
 (function() {
     var v = document.getElementsByClassName("youtube-player");
     for (var n = 0; n < v.length; n++) {

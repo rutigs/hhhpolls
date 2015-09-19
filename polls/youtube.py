@@ -1,6 +1,6 @@
 from urlparse import urlparse
 
-
+# stack overflow - question ?
 def video_id(value):
     query = urlparse(value)
     if query.hostname == 'youtu.be':
