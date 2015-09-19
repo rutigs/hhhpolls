@@ -4,7 +4,7 @@
 
 {% block body_block %}
 
-    <div class="row">
+    <div class="row poll-landing">
 
         {% if poll.open == True %}
             <h2>{{ poll.name }}</h2><br>
@@ -17,24 +17,30 @@
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 choices">
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 radio-label">
-                                <label for="choice{{ forloop.counter }}">{{ choice.name }}</label>
-                                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.name }}" />
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="youtube-container">
-                                    <div class="youtube-player" data-id="{{ choice.url|video_id }}"></div>
+                                <div class="label-input">
+                                    <label for="choice{{ forloop.counter }}">{{ choice.name }}</label>
+                                    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.name }}" />
                                 </div>
                             </div>
                         </div>
+
+                        {% if choice.url %}
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="youtube-container">
+                                        <div class="youtube-player" data-id="{{ choice.url|video_id }}"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
                     </div>
 
                 {% endfor %}
-            <div class="container">
-                <input id="pollvote" type="submit" value="Vote" />
-            </div>
+                <div class="container-fluid">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 vote-centered">
+                        <input id="pollvote" type="submit" value="Vote" />
+                    </div>
+                </div>
             </form>
 
         {% else %}

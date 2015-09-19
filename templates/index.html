@@ -4,8 +4,8 @@
 
 {% block body_block %}
 
-<div class="row center-block">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+<div class="row center-block landing">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 poll_list">
         <h3>Current Polls</h3>
         {% if open_polls %}
             <ul>
@@ -21,7 +21,7 @@
         {% endif %}
     </div>
 
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 poll_list">
         <h3>Past Poll Results</h3>
 
         {% if closed_polls %}

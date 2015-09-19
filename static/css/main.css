@@ -15,6 +15,19 @@ body {
     height: 60px;
     text-align: center;
 }
+.footer-p {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 60px;
+    height: 100%;
+}
+.footer-div {
+    background:rgba(0,0,0,0.8);
+	box-shadow: 0px 0px 2px white;
+	-webkit-box-shadow: 0px 0px 2px white;
+	-o-box-shadow: 0px 0px 2px white;
+    color: white;
+}
 #loginform {
     text-align: center;
     margin-left: auto;
@@ -34,12 +47,13 @@ nav {
 }
 .choices {
     margin-bottom: 20px;
+
 }
 iframe, img {
     display: block;
 }
 radio-label {
-    display: block;
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -50,7 +64,7 @@ iframe, img {
     margin-left: auto;
     margin-right: auto;
 }
-h2, h3, h4 {
+h1, h2, h3, h4 {
     text-align: center;
 }
 .col-centered {
@@ -124,18 +138,57 @@ button span {
 a:hover {
     color: black;
 }
+.footer-div a:hover {
+    color: white;
+}
 input {
     background-color: black;
     border: none;
     font-size: 30px;
 }
 #pollvote {
+    display: block;
     text-align: center;
-    background-color: transparent;
-    margin-right: auto;
-    margin-left: auto;
     border: 1px solid black;
+    color: white;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    background:rgba(0,0,0,0.8);
+	box-shadow: 0px 0px 2px white;
+	-webkit-box-shadow: 0px 0px 2px white;
+	-o-box-shadow: 0px 0px 2px white;
 }
 #voted {
     color: black;
+}
+label {
+    width: 94%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    background:rgba(0,0,0,0.8);
+	box-shadow: 0px 0px 2px white;
+	-webkit-box-shadow: 0px 0px 2px white;
+	-o-box-shadow: 0px 0px 2px white;
+    color: white;
+}
+.poll-landing {
+    height: 100%;
+}
+.results-center {
+    display: inline-block;
+    list-style-type: none;
+    border: 1px solid black;
+    background:rgba(0,0,0,0.8);
+	box-shadow: 0px 0px 2px white;
+	-webkit-box-shadow: 0px 0px 2px white;
+	-o-box-shadow: 0px 0px 2px white;
+    color: white;
+    padding-left: 0px;
+    text-align: center;
+}
+.results div, .results ul, .results li {
+    text-align: center;
 }

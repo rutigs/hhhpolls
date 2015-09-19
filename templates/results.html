@@ -11,19 +11,14 @@
         <h3>Final Results - "{{ poll.name }}"</h3>
     {% endif %}
 
-    <ul class="col-centered">
-        {% for choice in choices %}
-            <li>{{ forloop.counter }}. {{ choice.name }} has {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-        {% endfor %}
-    </ul>
-
-    {% load vid_ids %}
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-centered">
-            <div class="youtube-container">
-                <div class="youtube-player" data-id="{{ number1.url|video_id }}"></div>
-            </div>
-        </div>
-    </div><br>
+    <div class="container-fluid results">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-centered">
+        <ul class="results-center">
+            {% for choice in choices %}
+                <li>{{ choice.name }} has {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    </div>
 
 {% endblock %}
