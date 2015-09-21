@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 class Poll(models.Model):
     open = models.BooleanField(default=True)
     name = models.CharField(max_length=100)
+    info = models.CharField(max_length=200)
     creation_date = models.DateTimeField(editable=False)
     slug = models.SlugField(unique=True)
     embed_url = models.CharField(blank=True, max_length=500)

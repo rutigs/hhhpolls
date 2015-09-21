@@ -5,10 +5,11 @@
 {% block body_block %}
 
     {% if poll.open %}
-        <h1>{{ poll.name }}"</h1>
+        <h1>{{ poll.name }}</h1>
+        <h2>{{ poll.info }}</h2>
         <h3>Current Standings</h3>
     {% else %}
-        <h3>Final Results - "{{ poll.name }}"</h3>
+        <h3>Final Results for: {{ poll.name }} - {{ poll.info }}</h3>
     {% endif %}
 
     <div class="container-fluid results">

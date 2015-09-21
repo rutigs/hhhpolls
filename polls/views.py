@@ -24,7 +24,7 @@ def poll(request, poll_slug):
 
     try:
         current_poll = Poll.objects.get(slug=poll_slug)
-        choice_ids = poll_video_ids(current_poll.choice_set.all())
+        choice_ids = poll_video_ids(current_poll.choice_set.all().order_by('-name'))
         context_dict['poll'] = current_poll
         context_dict['choice_ids'] = choice_ids
     except Poll.DoesNotExist:

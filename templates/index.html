@@ -10,7 +10,7 @@
         {% if open_polls %}
             <ul>
                 {% for Poll in open_polls %}
-                    <li><a class="poll-link" href="{{ Poll.slug }}">{{ Poll.name }}</a></li>
+                    <li><a class="poll-link" href="{{ Poll.slug }}">{{ Poll.name }} - {{ Poll.info }}</a></li>
                 {% endfor %}
             </ul>
         {% else %}

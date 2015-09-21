@@ -8,7 +8,8 @@
 
         {% if poll.open == True %}
             <h2>{{ poll.name }}</h2><br>
-            <h4>You only get one vote and you cannot change it!</h3><br>
+            <h3>{{ poll.info }}</h3>
+            <h4>You only get one vote and you cannot change it!</h4><br>
             <form action="" method="post">
                 {% csrf_token %}
                 {% load vid_ids %}
