@@ -3,6 +3,7 @@ config.py
 .DS_Store
 db.sqlite3
 migrations/
+venv/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -62,7 +62,7 @@ def poll_results(request, poll_slug):
     context_dict = {}
     current_poll = Poll.objects.get(slug=poll_slug)
     context_dict['poll'] = current_poll
-    choices_in_order = current_poll.choice_set.order_by('-votes')
+    choices_in_order = current_poll.choice_set.order_by('-name')
     context_dict['choices'] = choices_in_order
     context_dict['number1'] = choices_in_order[0]
     return render(request, 'results.html', context_dict)

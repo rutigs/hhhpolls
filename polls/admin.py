@@ -7,7 +7,7 @@ from polls.models import Choice, Poll, Voter
 class ChoiceInline(admin.StackedInline):
     model = Choice
     fields = ('name', 'url', 'votes')
-    readonly_fields = ('votes',)
+    # readonly_fields = ('votes',)
 
 
 class PollAdmin(admin.ModelAdmin):
