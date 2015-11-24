@@ -1,194 +1,130 @@
-body {
-    color: black;
-    background: url(recordbg.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    font-family: Georgia, sans-serif;
-    margin-bottom: 60px;
+html, body, header, p, a, h1, h2, h3, button, span {
+	margin: 0;
+	padding: 0;
 }
-.footer {
-    position: fixed;
-    bottom: 0;
+
+html {
     width: 100%;
-    height: 60px;
-    text-align: center;
-}
-.footer-p {
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 60px;
     height: 100%;
 }
-.footer-div {
-    background:rgba(0,0,0,0.8);
-	box-shadow: 0px 0px 2px white;
-	-webkit-box-shadow: 0px 0px 2px white;
-	-o-box-shadow: 0px 0px 2px white;
-    color: white;
-}
-#loginform {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 20px;
-}
-nav {
-    color: white;
-}
-#redditauth {
-    background-color: transparent;
-    font-size: inherit;
-    border: 1px solid black;
-}
-.poll {
-    text-align: center;
-}
-.choices {
-    margin-bottom: 20px;
 
-}
-iframe, img {
-    display: block;
-}
-radio-label {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
+body {
+    width: 100%;
+    height: 100%;
     text-align: center;
+    color: #FFF;
+    background-color: #111;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
 }
-iframe, img {
-    height: 240px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
-h1, h2, h3, h4 {
-    text-align: center;
-}
-.col-centered {
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-}
-nav {
-    background-color: black;
-}
+
 a {
-    text-decoration: none;
-    color: white;
+    color: #FFF;
 }
 
-@media (min-width: 480px) {
-    iframe, img {
-        display: block;
-        width: 90%;
-        height: 100%;
-    }
+h1 {
+    font-family: 'Oswald', Arial, sans-serif;
 }
 
-@media (min-width: 760px) {
-    iframe, img {
-        display: block;
-        width: 90%;
-        height: 50vh;
-    }
+#menu {
+    width: 600px;
+    height: auto;
+    float: left;
 }
 
-@media (min-width: 992px) {
-    iframe, img {
-        display: block;
-        width: 90%;
-        height: 50vh;
-    }
+#header {
+    /*position: absolute;
+    right: 10%;
+    top: 40px;*/
+    margin-bottom: 20px;
 }
 
-@media (min-width: 1200px) {
-    iframe, img {
-        display: block;
-        width: 90%;
-        height: 50vh;
-    }
+.nav_button {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: 'Oswald', Arial, sans-serif;
+    cursor: pointer;
+    font-size: 20px;
 }
 
 #logo {
+    width: 500px;
+    height: 285px;
     display: inline-block;
-    height: 50px;
-    width: inherit;
-    vertical-align: middle;
+    margin-top: 100px;
+    background: url(../images/HHHP.png) center no-repeat;
+    background-size: contain;
 }
-#logolink {
-    text-decoration: none;
-    color: white;
+
+#github {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-top: 20px;
+    background: url(../images/github.png) center no-repeat;
+    background-size: contain;
 }
-#logolink:hover {
-    text-decoration: none;
-    color: white;
-}
-button span {
-    background-color: white;
-}
-.poll-link {
-    color: black;
-}
-.poll-link:hover {
-    color: black;
-}
-a:hover {
-    color: black;
-}
-.footer-div a:hover {
-    color: white;
-}
-input {
-    background-color: black;
-    border: none;
-    font-size: 30px;
-}
-#pollvote {
-    display: block;
-    text-align: center;
-    border: 1px solid black;
-    color: white;
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-    background:rgba(0,0,0,0.8);
-	box-shadow: 0px 0px 2px white;
-	-webkit-box-shadow: 0px 0px 2px white;
-	-o-box-shadow: 0px 0px 2px white;
-}
-#voted {
-    color: black;
-}
-label {
-    width: 94%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid black;
-    background:rgba(0,0,0,0.8);
-	box-shadow: 0px 0px 2px white;
-	-webkit-box-shadow: 0px 0px 2px white;
-	-o-box-shadow: 0px 0px 2px white;
-    color: white;
-}
-.poll-landing {
+
+/* Poll Container */
+#polls {
+    width: 60%;
     height: 100%;
+    float: right;
 }
-.results-center {
-    display: inline-block;
-    list-style-type: none;
-    border: 1px solid black;
-    background:rgba(0,0,0,0.8);
-	box-shadow: 0px 0px 2px white;
-	-webkit-box-shadow: 0px 0px 2px white;
-	-o-box-shadow: 0px 0px 2px white;
-    color: white;
-    padding-left: 0px;
-    text-align: center;
+
+.poll_container {
+    width: 50%;
+    height: 100%;
+    float: right;
 }
-.results div, .results ul, .results li {
-    text-align: center;
+
+.close_poll_cont {    
+    width: 0; 
+	height: 0;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;	
+	border-left: 15px solid #0E0E0E;
+    cursor: pointer;
 }
+
+#past_polls_arrow.close_poll_cont {
+    border-left: 15px solid #FFF;
+}
+
+.open_poll_cont {
+    border-left: none;
+    border-right: 15px solid #0E0E0E;
+}
+
+#past_polls_arrow.open_poll_cont {
+    border-left: none;
+    border-right: 15px solid #FFF;
+}
+
+#current_polls {
+    background-color: #FFF;
+    color: #000;
+}
+
+#current_polls  a{
+    color: #000;
+}
+
+#past_polls {
+    background-color: #0E0E0E;
+}
+
+.poll_container h1 {
+    margin-top: 25px;
+}
+
+.poll_container h3 {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-weight: 400;
+}
+

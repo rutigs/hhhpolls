@@ -3,63 +3,45 @@
 
 {% load staticfiles %}
 
-<head lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial=scale=1.0">
-    <title>HHH Polls - {% block title %}Home{% endblock %}</title>
-    <meta name="description" content="Polling Application for the community at www.reddit.com/r/hiphopheads"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="{% static "css/main.css" %}"/>
-</head>
-<body>
-
-<nav class="navbar">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
-                <span class="sr-only">Toggle Nav</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a id="logolink" href="/"><img id="logo" alt="HipHopHeads Polls" src="{% static "hhhlogo.png" %}"><span id="polls">Polls</span></a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="https://www.reddit.com/r/hiphopheads">Reddit</a></li>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial=scale=1.0">
+        <title>HHH Polls - {% block title %}Home{% endblock %}</title>
+        <meta name="description" content="Polling Application for the community at www.reddit.com/r/hiphopheads"/>
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>-->
+        <link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+    </head>
+    <body>
+        <div id="menu">
+            <div id="logo"></div>
+            {% if error_message %}
+                <h3>{{ error_message }}</h3>
+            {% endif %}
+            <div id="header">
+                <a href="https://www.reddit.com/r/hiphopheads"><div class="nav_button">REDDIT</div></a>
+                <p style="display: inline;">I</p>
                 {% if user.is_authenticated %}
-                    <li><a href="/logout/">Logout</a></li>
+                    <a href="/logout/"><div class="nav_button">LOGOUT</div></a>
                 {% else %}
-                    <li><a href="/login/">Login</a></li>
-                {% endif %}
-            </ul>
+                    <a href="/login/"><div class="nav_button">LOGIN</div></a>
+                {% endif %}       
+            </div>
+            <div id="footer">
+                <p>We track <a href="www.reddit.com/r/HipHopHeads">/r/HipHopHeads</a>' votes on the latest tracks.</p>     
+                <p>A stats site created by /u/Rutigs.</p>
+                <a href="https://github.com/rutigs/hhhpolls"><div id="github"></div></a>
+            </div>
         </div>
-    </div>
-</nav>
-
-{% if error_message %}
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-centered">
-            <h3>{{ error_message }}</h3>
+     
+        <div id="polls">
+            {% block body_block %}{% endblock %}
         </div>
-    </div>
-{% endif %}
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>-->
+        <script src="{% static "js/main.js" %}"></script>
 
-<div class="container-fluid">
-    {% block body_block %}{% endblock %}
-</div>
-
-<footer class="footer">
-    <div class="container-fluid">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-centered footer-div">
-            <p class="footer-p">Created for the community at <a href="www.reddit.com/r/HipHopHeads">/r/HipHopHeads</a> by /u/Rutigs. Source code <a href="https://github.com/rutigs/hhhpolls">here.</a><p>
-        </div>
-    </div>
-</footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
-<script src="{% static "js/main.js" %}"></script>
-
-</body>
+    </body>
 </html>
