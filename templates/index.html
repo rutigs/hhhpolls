@@ -10,11 +10,17 @@
         <div class="poll_innards">
             <h1>CURRENT POLLS</h1>
             {% if open_polls %}
-                <ul>
+                <div class="poll_wrapper">
                     {% for Poll in open_polls %}
-                        <li><a class="poll-link" href="{{ Poll.slug }}">{{ Poll.name }} - {{ Poll.info }}</a></li>
+                        <div class="poll">
+                            <div class="play"></div>
+                            <a class="poll-link" href="{{ Poll.slug }}">
+                                <h3 class="poll_name">{{ Poll.name }}</h3>
+                                <h3 class="poll_desc">{{ Poll.info }}</h3>
+                            </a>
+                        </div>
                     {% endfor %}
-                </ul>
+                </div>
             {% else %}
                 <h3>No active polls at the moment.</h3>
                 <h3>Message

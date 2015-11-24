@@ -128,3 +128,51 @@ h1 {
     font-weight: 400;
 }
 
+/* Polls */
+.poll {
+    width: 90%;
+    height: auto;
+    display: inline-block;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.poll a{
+    text-decoration: none;
+}
+
+h3.poll_name {
+    display: inline;
+    font-family: 'Oswald', Arial, sans-serif;
+    font-weight: 400;
+}
+
+h3.poll_name {
+    display: inline;
+}
+
+.play {
+    width: 0;
+    height: 0;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-top: 8px solid transparent;
+    border-left: 12px solid #000;
+    border-bottom: 8px solid transparent;
+    cursor: pointer;
+}
+
+.pause {
+    width: 4px;
+    height: 16px;
+    border-top: none;
+    border-bottom: none;
+    border-right: 4px solid #000;
+    border-left: 4px solid #000;
+}
+
+h3.play_message {
+    display: inline;
+    margin-right: 10px;    
+}

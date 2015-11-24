@@ -12,6 +12,25 @@ $(document).ready(function(){
         pastIsOpen = !pastIsOpen;
     });
     
+    $(".play").click(function(){
+        $(this).toggleClass("pause");        
+    });
+    
+    $(".play").mouseenter(function(){
+        var message = "";
+        if($(this).hasClass("pause"))
+            message = "PAUSE";
+        else
+            message = "PLAY";
+        $(this).after("<h3 class='play_message'>" + message + "</h3>");
+        $(".play").mouseleave(function(){
+            $(this).next(".play_message").remove();
+        });
+    });
+    
+
+    
+    
     function togglePollContainers($target, poll_state) {
         if(poll_state == true) {
             $target.next(".poll_innards").fadeOut("slow");
