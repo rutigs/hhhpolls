@@ -3,7 +3,7 @@
 
 HipHopHeads Polls is an application for the community over at <a href="https://www.reddit.com/r/HipHopHeads">/r/HipHopHeads</a> on Reddit.
 
-Besides being my 2nd time making a web application (first time alone) the following were my goals for the project:
+Goals for the project:
 
 1. Provide a service where only the community (those who are subbed to the subreddit) can vote by using the Reddit API.
 2. Mobile-friendly and look good
