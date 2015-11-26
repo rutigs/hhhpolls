@@ -28,9 +28,6 @@ $(document).ready(function(){
         });
     });
     
-
-    
-    
     function togglePollContainers($target, poll_state) {
         if(poll_state == true) {
             $target.next(".poll_innards").fadeOut("slow");
