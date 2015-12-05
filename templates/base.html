@@ -11,7 +11,9 @@
         <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>-->
         <link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/font-styles.css' %}"/>
     </head>
     <body>
         <div id="menu">
@@ -31,7 +33,7 @@
             <div id="footer">
                 <p>We track <a href="www.reddit.com/r/HipHopHeads">/r/HipHopHeads</a>' votes on the latest tracks.</p>     
                 <p>A stats site created by /u/Rutigs.</p>
-                <a href="https://github.com/rutigs/hhhpolls"><div id="github"></div></a>
+                <a class="icon-github" href="https://github.com/rutigs/hhhpolls"></a>
             </div>
         </div>
      
@@ -39,9 +41,37 @@
             {% block body_block %}{% endblock %}
         </div>
         
+        <div id="player_wrapper">
+            <h1 id="track_number">03</h1>
+            <div id="equalizer">
+                <audio
+                    id="test1"
+                    class="video-js"
+                    controls
+                    width="640" height="264"
+                    data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=DiEwJTOderQ"}]}'
+                  >
+                </audio>
+            </div>
+            <h2 id="artist_song_title">PASSION PIT- CARRIED AWAY</h2>
+            <h3 id="album_title">Gossamer</h3>
+            
+            <p id="track_extra_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <span></span>
+            <span></span>
+            <div id="audio_div">
+                <div id="audio_controls">
+                    <div class="track_button icon-skipbackward" id="prev"></div>
+                    <div class="track_button icon-play" id="center_button"></div>
+                    <div class="track_button icon-skipforward" id="next"></div>
+                </div>
+            </div>
+        </div>      
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://vjs.zencdn.net/5.0/video.min.js"></script>
         <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>-->
-        <script src="{% static "js/main.js" %}"></script>
-
+        <script src="{% static 'js/main.js' %}"></script>
+        <script src="{% static 'js/Youtube.js' %}"></script>
     </body>
 </html>

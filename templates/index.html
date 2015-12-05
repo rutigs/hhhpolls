@@ -13,7 +13,7 @@
                 <div class="poll_wrapper">
                     {% for Poll in open_polls %}
                         <div class="poll">
-                            <div class="play"></div>
+                            <i class="play icon-play-circle"></i>
                             <a class="poll-link" href="{{ Poll.slug }}">
                                 <h3 class="poll_name">{{ Poll.name }}</h3>
                                 <h3 class="poll_desc">{{ Poll.info }}</h3>

@@ -50,6 +50,10 @@ h1 {
     font-size: 20px;
 }
 
+.nav_button:hover {
+    color: #ffca29;
+}
+
 #logo {
     width: 500px;
     height: 285px;
@@ -59,26 +63,27 @@ h1 {
     background-size: contain;
 }
 
-#github {
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    margin-top: 20px;
-    background: url(../images/github.png) center no-repeat;
-    background-size: contain;
+a.icon-github {
+    font-size: 30px;
+    text-decoration: none;
+    line-height: 60px;
 }
 
 /* Poll Container */
 #polls {
     width: 60%;
     height: 100%;
-    float: right;
+    right: 0;
+    position: absolute;
 }
 
 .poll_container {
     width: 50%;
     height: 100%;
     float: right;
+    right: 0;
+    position: relative;
+    z-index: 5;
 }
 
 .close_poll_cont {    
@@ -89,12 +94,12 @@ h1 {
     margin-left: 10px;
 	border-top: 15px solid transparent;
 	border-bottom: 15px solid transparent;	
-	border-left: 15px solid #0E0E0E;
+	border-left: 20px solid #0E0E0E;
     cursor: pointer;
 }
 
 #past_polls_arrow.close_poll_cont {
-    border-left: 15px solid #FFF;
+    border-left: 20px solid #FFF;
 }
 
 .open_poll_cont {
@@ -138,6 +143,11 @@ h1 {
     text-align: left;
 }
 
+.play{
+    font-size: 18px;
+    cursor: pointer;
+}
+
 .poll a{
     text-decoration: none;
 }
@@ -152,28 +162,89 @@ h3.poll_name {
     display: inline;
 }
 
-.play {
-    width: 0;
-    height: 0;
-    display: inline-block;
+h3.play_message {
+    font-size: 21px;
+    display: inline;
+    margin-right: 10px; 
     margin-left: 5px;
-    margin-right: 5px;
-    border-top: 8px solid transparent;
-    border-left: 12px solid #000;
-    border-bottom: 8px solid transparent;
+}
+
+/*  Music Player  */
+#player_wrapper{
+    width: 60%;
+    height: 100%;
+    right: 0;
+    position: absolute;
+    z-index: 3;
+    text-align: left;
+}
+
+h1#track_number {
+    width: 100px;
+    display: inline-block;
+    margin-top: 150px;  
+    font-size: 72px;
+}
+
+#equalizer {
+    height: 100px;
+    width: 50%;
+    display: inline-block;
+    border-bottom: 1px solid #FFF;
+}
+
+h2#artist_song_title {
+    font-size: 60px;
+    font-family: 'Oswald', Arial, sans-serif;
+    font-weight: 300;
+    color: #ffca29;
+}
+
+h3#album_title {
+    font-size: 30px;
+    font-family: 'Oswald', Arial, sans-serif;
+    font-weight: 300;
+    color: #888;
+}
+
+p#track_extra_description {
+    width: 60%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: #888;
+}
+
+span {
+    width: 60%;
+    display: block;
+    margin-top: 3px;
+    border-bottom: 1px solid #888;
+}
+
+#audio_div {
+    width: 60%;
+    margin-top: 30px;
+    text-align: center;
+}
+
+#audio_controls {
+    width: 120px;
+    height: 50px;
+    display: inline-block;
+}
+
+#center_button {
+    font-size: 50px;
+}
+
+.track_button {
+    height: 50px;
+    float: left;
+    font-size: 30px;    
+    line-height: 60px;
     cursor: pointer;
 }
 
-.pause {
-    width: 4px;
-    height: 16px;
-    border-top: none;
-    border-bottom: none;
-    border-right: 4px solid #000;
-    border-left: 4px solid #000;
-}
-
-h3.play_message {
-    display: inline;
-    margin-right: 10px;    
+.video-js {
+    display: none;
 }
