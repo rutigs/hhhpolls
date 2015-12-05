@@ -1,7 +1,14 @@
 $(document).ready(function(){
     var currentIsOpen = true;
     var pastIsOpen = true;
-    var myPlayer = videojs('test1'); 
+    var myPlayer = videojs('test1', { /* Options */ }, function() {
+        this.on('ended', function() {
+            console.log('awww...over so soon?');
+            $("#center_button").removeClass("icon-pause");
+            $(".play").removeClass("icon-pause-circle");
+            myPlayer.pause().currentTime(0);
+        });
+    });; 
     
     $("#current_polls_arrow").click(function(){
         togglePollContainers($(this), currentIsOpen);
@@ -14,16 +21,24 @@ $(document).ready(function(){
     });
     
     $(".play").click(function(){
-        $(this).toggleClass("icon-pause-circle");
+        var $target = $(this);
+        $target.toggleClass("icon-pause-circle");
+        $("#center_button").toggleClass("icon-pause");
+                    myPlayer.play();
         
-        var message = $(this).next(".play_message").text();
-        if(message == "PLAY") {
-            $(this).next(".play_message").text("PAUSE");
+        if($target.hasClass("icon-pause-circle")) {
             myPlayer.play();
         }
+        else {            
+            myPlayer.pause();            
+        }                    
+                    
+        var message = $target.next(".play_message").text();
+        if(message == "PLAY") {
+            $target.next(".play_message").text("PAUSE");
+        }
         else {
-            $(this).next(".play_message").text("PLAY");
-            myPlayer.pause();
+            $target.next(".play_message").text("PLAY");
         }
     });
     
@@ -57,13 +72,14 @@ $(document).ready(function(){
     $("#center_button").click(function(){
         var $target = $(this);
         $(this).toggleClass("icon-pause");
+        $(".play").toggleClass("icon-pause-circle");
+        
         if($target.hasClass("icon-pause-fill")) {
             $(this).removeClass("icon-pause-fill").addClass("icon-play-fill");
             myPlayer.pause();
         }
         else
-            myPlayer.play();
-        
+            myPlayer.play();        
             
         togglePlayButtonState($target);
     });
@@ -97,13 +113,6 @@ $(document).ready(function(){
         $target.toggleClass("open_poll_cont");
     }
     
-    /*
-        https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API
-        https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API#Creating_a_waveformoscilloscope
-        https://github.com/mdn/voice-change-o-matic/blob/gh-pages/scripts/app.js#L123-L167
-    
-    
-    */
     
     /*// stack overflow homies - question ?
     (function() {
