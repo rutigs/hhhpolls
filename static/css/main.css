@@ -186,11 +186,17 @@ h1#track_number {
     font-size: 72px;
 }
 
-#equalizer {
-    height: 100px;
+#equalizer_div{
+    height: 70px;
     width: 50%;
     display: inline-block;
     border-bottom: 1px solid #FFF;
+}
+
+#equalizer {
+    height: 68px;
+    width: 100%;
+    display: inline-block;
 }
 
 h2#artist_song_title {

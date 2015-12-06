@@ -8,11 +8,25 @@
         <meta name="viewport" content="width=device-width, initial=scale=1.0">
         <title>HHH Polls - {% block title %}Home{% endblock %}</title>
         <meta name="description" content="Polling Application for the community at www.reddit.com/r/hiphopheads"/>
-        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>-->
         <link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
-        <link rel="stylesheet" href="{% static 'css/font-styles.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/font-styles.css' %}"/>        
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://vjs.zencdn.net/5.0/video.min.js"></script>
+        <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
+
+        <script src="{% static 'js/Youtube.js' %}"></script>
+        <script src="{% static 'js/waveform.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+        
+        
+        <script>
+            SC.initialize({
+                client_id: "c22c5fe14fd82318be2bc25a9cecd82b"
+            });
+        </script>
     </head>
     <body>
         <div id="menu">
@@ -42,7 +56,9 @@
         
         <div id="player_wrapper">
             <h1 id="track_number">03</h1>
-            <canvas id="equalizer"></canvas>
+            <div id="equalizer_div">
+                <div id="equalizer"></div>
+            </div>            
             <h2 id="artist_song_title">PASSION PIT- CARRIED AWAY</h2>
             <h3 id="album_title">Gossamer</h3>
             
@@ -56,29 +72,17 @@
                     <div class="track_button icon-skipforward" id="next"></div>
                 </div>
             </div>
-            <div id="url"></div>
-            <h1>Image</h1>
-            <img id="img">
-            <!--<audio
+            
+            <div id="testSC" style="height: 50px; width: 50px;"></div>
+            
+            <audio
                     id="test1"
                     class="video-js"
                     controls
                     width="640" height="264"
                     data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=DiEwJTOderQ"}]}'
                   >
-            </audio>-->
+            </audio>
         </div>     
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <!--<script src="http://vjs.zencdn.net/5.0/video.min.js"></script>-->
-        <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
-        <script>
-            SC.initialize({
-                client_id: "c22c5fe14fd82318be2bc25a9cecd82b",
-            });
-        </script>
-        
-        <script src="{% static 'js/main.js' %}"></script>
-        <!--<script src="{% static 'js/Youtube.js' %}"></script>-->
-        <script src="{% static 'js/waveform.js' %}"></script>
     </body>
 </html>

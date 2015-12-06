@@ -1,15 +1,14 @@
 $(document).ready(function(){
     var currentIsOpen = true;
     var pastIsOpen = true;
-    var myPlayer;
-    /*var myPlayer = videojs('test1', { /* Options */ }, function() {
-    /*    this.on('ended', function() {
+    var myPlayer = videojs('test1', { /* Options */ }, function() {
+        this.on('ended', function() {
             console.log('awww...over so soon?');
             $("#center_button").removeClass("icon-pause");
             $(".play").removeClass("icon-pause-circle");
             myPlayer.pause().currentTime(0);
         });
-    });*/ 
+    });
     
     $("#current_polls_arrow").click(function(){
         togglePollContainers($(this), currentIsOpen);
@@ -19,13 +18,12 @@ $(document).ready(function(){
     $("#past_polls_arrow").click(function(){
         togglePollContainers($(this), pastIsOpen);
         pastIsOpen = !pastIsOpen;
-    });
+    }); 
     
     $(".play").click(function(){
         var $target = $(this);
         $target.toggleClass("icon-pause-circle");
         $("#center_button").toggleClass("icon-pause");
-                    myPlayer.play();
         
         if($target.hasClass("icon-pause-circle")) {
             myPlayer.play();
@@ -114,15 +112,25 @@ $(document).ready(function(){
         $target.toggleClass("open_poll_cont");
     }
     
-    var PATH = "/users/dj-faze/tracks/phase-shift-360-019-degrees";
-    function () {
-        SC.get(PATH
-          , function(tracks, err){
-            $("#url").html(tracks.waveform_url);
-            $("#img").attr("src", tracks.waveform_url);
-        });
-    }
+       
+    var trackUrl = 'http://soundcloud.com/passionpit/carried-away-dillon-francis';
+    $.get(
+        'http://api.soundcloud.com/resolve.json?url=' + trackUrl + '&client_id=c22c5fe14fd82318be2bc25a9cecd82b', 
+        function (result) {        
+            var waveform = new Waveform({
+                container: document.getElementById("equalizer"),
+                innerColor: "#999"
+            });
+
+            waveform.dataFromSoundCloudTrack(result);
+            var streamOptions = waveform.optionsForSyncedStream();
+                SC.stream(track.uri, streamOptions, function(stream){
+                window.exampleStream = stream;
+            }); 
+        }
+    );
     
+    //16262256
     
     /*// stack overflow homies - question ?
     (function() {

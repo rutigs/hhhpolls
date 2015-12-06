@@ -65,7 +65,7 @@
       } else {
         this.context.fillStyle = this.innerColor;
       }
-      middle = this.height / 2;
+      middle = this.height; // / 2;
       i = 0;
       _ref = this.data;
       _results = [];
