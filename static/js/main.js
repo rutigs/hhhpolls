@@ -1,14 +1,15 @@
 $(document).ready(function(){
     var currentIsOpen = true;
     var pastIsOpen = true;
-    var myPlayer = videojs('test1', { /* Options */ }, function() {
-        this.on('ended', function() {
+    var myPlayer;
+    /*var myPlayer = videojs('test1', { /* Options */ }, function() {
+    /*    this.on('ended', function() {
             console.log('awww...over so soon?');
             $("#center_button").removeClass("icon-pause");
             $(".play").removeClass("icon-pause-circle");
             myPlayer.pause().currentTime(0);
         });
-    });; 
+    });*/ 
     
     $("#current_polls_arrow").click(function(){
         togglePollContainers($(this), currentIsOpen);
@@ -111,6 +112,15 @@ $(document).ready(function(){
             $target.parent(".poll_container").animate({"width": "50%"}, 500);            
         }
         $target.toggleClass("open_poll_cont");
+    }
+    
+    var PATH = "/users/dj-faze/tracks/phase-shift-360-019-degrees";
+    function () {
+        SC.get(PATH
+          , function(tracks, err){
+            $("#url").html(tracks.waveform_url);
+            $("#img").attr("src", tracks.waveform_url);
+        });
     }
     
     
