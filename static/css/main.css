@@ -143,7 +143,7 @@ a.icon-github {
     text-align: left;
 }
 
-.play{
+.play_circle{
     font-size: 18px;
     cursor: pointer;
 }
@@ -184,6 +184,11 @@ h1#track_number {
     display: inline-block;
     margin-top: 150px;  
     font-size: 72px;
+}
+
+#track_number img {
+    height: 90px;
+    width: auto;
 }
 
 #equalizer_div{
@@ -229,7 +234,7 @@ span {
 
 #audio_div {
     width: 60%;
-    margin-top: 30px;
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -253,4 +258,46 @@ span {
 
 .video-js {
     display: none;
+}
+
+
+.audiojs {
+    width: 60%;
+    background: none;
+    box-shadow: none;
+    overflow: visible;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.audiojs .play-pause {
+    display: none;
+}
+
+.audiojs .time {
+    height: auto;
+    line-height: normal; 
+    margin-left: 0;
+    padding: 0;
+}
+
+.audiojs .play-pause, .audiojs .time {
+    border-left: none;
+    border-right: none;
+}
+
+.audiojs .scrubber {
+    width: 100%;
+    height: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 0;
+    border-top: none;
+}
+
+.audiojs .loaded {
+    background: #666;
+}
+
+.audiojs .progress, .audiojs .loaded {
+    background-image: none;
 }

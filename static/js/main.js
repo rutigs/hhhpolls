@@ -1,14 +1,33 @@
 $(document).ready(function(){
+    var isSC = true;
+    var scURL = "https://soundcloud.com/fosterthepeoplemusic/houdini";
     var currentIsOpen = true;
     var pastIsOpen = true;
-    var myPlayer = videojs('test1', { /* Options */ }, function() {
+    var myPlayer = videojs('testYT', { /* Options */ }, function() {
         this.on('ended', function() {
-            console.log('awww...over so soon?');
+            // console.log('awww...over so soon?');
             $("#center_button").removeClass("icon-pause");
-            $(".play").removeClass("icon-pause-circle");
+            $(".play_circle").removeClass("icon-pause-circle");
             myPlayer.pause().currentTime(0);
         });
     });
+    
+    
+    var a = audiojs.createAll({
+            trackEnded: function() {
+                $("#center_button").removeClass("icon-pause");
+                $(".play_circle").removeClass("icon-pause-circle");
+                audio.pause();
+                // audio.load($('a', next).attr('data-src'));
+            }
+        });    
+    var audio = a[0];
+    initializeSC(scURL);
+    function initializeSC(url){
+        //audio.load($("#testSC").attr('data-src'));
+        getSCInfo(url);      
+    }
+    
     
     $("#current_polls_arrow").click(function(){
         togglePollContainers($(this), currentIsOpen);
@@ -20,16 +39,22 @@ $(document).ready(function(){
         pastIsOpen = !pastIsOpen;
     }); 
     
-    $(".play").click(function(){
+    $(".play_circle").click(function(){
         var $target = $(this);
         $target.toggleClass("icon-pause-circle");
         $("#center_button").toggleClass("icon-pause");
         
         if($target.hasClass("icon-pause-circle")) {
-            myPlayer.play();
+            if(isSC)
+                audio.play();
+            else
+                myPlayer.play();
         }
-        else {            
-            myPlayer.pause();            
+        else {
+            if(isSC)
+                audio.pause();
+            else            
+                myPlayer.pause();            
         }                    
                     
         var message = $target.next(".play_message").text();
@@ -46,7 +71,7 @@ $(document).ready(function(){
         if($(this).hasClass("icon-pause-circle"))
             message = "PAUSE";
         else
-            message = "PLAY";
+            message = "play_circle";
     
         $(this).after("<h3 class='play_message'>" + message + "</h3>");
         $(".icon-play-circle").mouseleave(function(){
@@ -71,14 +96,20 @@ $(document).ready(function(){
     $("#center_button").click(function(){
         var $target = $(this);
         $(this).toggleClass("icon-pause");
-        $(".play").toggleClass("icon-pause-circle");
+        $(".play_circle").toggleClass("icon-pause-circle");
         
         if($target.hasClass("icon-pause-fill")) {
             $(this).removeClass("icon-pause-fill").addClass("icon-play-fill");
-            myPlayer.pause();
+            if(isSC)
+                audio.pause();
+            else
+                myPlayer.pause();
         }
         else
-            myPlayer.play();        
+            if(isSC)
+                audio.play();
+            else
+                myPlayer.play();        
             
         togglePlayButtonState($target);
     });
@@ -113,24 +144,41 @@ $(document).ready(function(){
     }
     
        
-    var trackUrl = 'http://soundcloud.com/passionpit/carried-away-dillon-francis';
-    $.get(
-        'http://api.soundcloud.com/resolve.json?url=' + trackUrl + '&client_id=c22c5fe14fd82318be2bc25a9cecd82b', 
-        function (result) {        
-            var waveform = new Waveform({
-                container: document.getElementById("equalizer"),
-                innerColor: "#999"
-            });
+    // var trackUrl = 'http://soundcloud.com/passionpit/carried-away-dillon-francis';
+    // var trackUrl = "https://soundcloud.com/fosterthepeoplemusic/houdini";
+    function getSCInfo(trackUrl){
+        $.get(
+            'http://api.soundcloud.com/resolve.json?url=' + trackUrl + '&client_id=c22c5fe14fd82318be2bc25a9cecd82b',
+            // 'https://api.soundcloud.com/tracks/85328003.json?client_id=c22c5fe14fd82318be2bc25a9cecd82b',         
+            function (result) {
+                // console.log(result);
+                audio.load("http://api.soundcloud.com/tracks/" + result.id + "/stream?client_id=c22c5fe14fd82318be2bc25a9cecd82b");
+                var artist = result.user.username;
+                var title = result.title;
+                var label = result.label_name;
+                $("#artist_song_title").text(artist.toUpperCase() + " - " + title.toUpperCase());
+                $("#album_title").text(label.toUpperCase());       
+                $("#track_number").append("<img src='" + result.artwork_url + "'></img>");            
+                $("#track_extra_description").text(result.description);            
+                
+                var waveform = new Waveform({
+                    container: document.getElementById("equalizer"),
+                    innerColor: "#999"
+                });
 
-            waveform.dataFromSoundCloudTrack(result);
-            var streamOptions = waveform.optionsForSyncedStream();
-                SC.stream(track.uri, streamOptions, function(stream){
-                window.exampleStream = stream;
-            }); 
-        }
-    );
+                waveform.dataFromSoundCloudTrack(result);
+                /*var streamOptions = waveform.optionsForSyncedStream();
+                    SC.stream(track.uri, streamOptions, function(stream){
+                    window.exampleStream = stream;
+                });*/
+            }
+        );
+    }
     
-    //16262256
+    
+    // http://jsfiddle.net/VL7n8/33/
+    // http://stackoverflow.com/questions/24232025/play-soundcloud-stream-uri-in-html-5-mp3-player-audio-js
+    // 16262256
     
     /*// stack overflow homies - question ?
     (function() {
