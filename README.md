@@ -26,8 +26,7 @@ To achieve this I did several things.
 - Iframes are expensive to load when you have an entire poll of them. The workaround to this involves only using thumbnails until the user clicks on the video itself and then the video is then loaded using JS. 
 
 inside main.js
-<code>
-
+```
     (function() {
         var v = document.getElementsByClassName("youtube-player");
         for (var n = 0; n < v.length; n++) {
@@ -49,8 +48,7 @@ inside main.js
         iframe.setAttribute("id", "youtube-iframe");
         this.parentNode.replaceChild(iframe, this);
     }
-
-</code>
+```
 
 Goal 3. Learn Django/Python/Web Development
 ==========================================
